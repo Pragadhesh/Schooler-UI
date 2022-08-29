@@ -1,1 +1,112 @@
-<p>homepage works!</p>
+<mat-toolbar class="flex justify-between p-2">
+    <div> Admission Enquiry Form</div>
+    <button class="pr-5" mat-flat-button color="accent">Admin</button>
+</mat-toolbar>
+<div class="flex pt-10 pl-56 justify-start flex-col">
+    <div class="flex text-xl font-medium text-rose-700">
+        Student Information
+    </div>
+    <div class="flex pt-5 flex-row" >
+        <div class="text-lg font-medium text-blue-700">
+            Student Name
+        </div>
+        <div class="text-lg font-medium text-red-600">
+            *
+        </div>
+    </div>
+    <div class="flex pt-3 flex-row w-full" >
+            <mat-form-field class="firstname w-96" appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            <mat-form-field class="lastname pl-3 w-96" appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+    </div>
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700">
+                Student Date of Birth
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex flex-row pl-44">
+            <div class="text-lg font-medium text-blue-700">
+                Sex
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex flex-row pl-44">
+            <div class="text-lg font-medium text-blue-700">
+                Race/Ethnicity
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex pt-3 flex-row w-full">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-radio-group aria-label="Select an option" class="flex pl-20">
+            <mat-radio-button value="1" class="flex self-center justify-self-center">Male</mat-radio-button>
+            <mat-radio-button value="2" class="flex self-center justify-self-center pl-7">Female</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field appearance="fill" class="flex pl-20">
+            <mat-label>Select</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700">
+                Address
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex pt-3 flex-col justify-start  w-full">
+        <mat-form-field class="studentadressline1 w-7/12" appearance="fill">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field class="studentadressline2 w-7/12 pt-1" appearance="fill">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <div class="flex flex-row w-full pt-1">
+            <mat-form-field class="studentcity" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="flex pl-20">
+                <mat-label>State</mat-label>
+                <mat-select>
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="studentzipcode pl-20" appearance="fill">
+                <mat-label>Zip Code</mat-label>
+                <input matInput>
+            </mat-form-field>
+          </div>
+    </div>
+
+
+</div>

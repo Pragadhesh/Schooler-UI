@@ -4,3 +4,6 @@
 @import "tailwindcss/utilities";
 @import 'assets/styles/variables';
 @import '~@progress/kendo-theme-default/dist/all.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
