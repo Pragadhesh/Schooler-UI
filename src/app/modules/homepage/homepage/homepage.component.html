@@ -2,7 +2,7 @@
     <div> Admission Enquiry Form</div>
     <button class="pr-5" mat-flat-button color="accent">Admin</button>
 </mat-toolbar>
-<div class="flex pt-10 pl-56 justify-start flex-col">
+<div class="flex pt-10 pl-96 justify-start flex-col">
     <div class="flex text-xl font-medium text-rose-700">
         Student Information
     </div>
@@ -33,7 +33,7 @@
                 *
             </div>
         </div>
-        <div class="flex flex-row pl-44">
+        <div class="flex flex-row pl-36">
             <div class="text-lg font-medium text-blue-700">
                 Sex
             </div>
@@ -41,7 +41,7 @@
                 *
             </div>
         </div>
-        <div class="flex flex-row pl-44">
+        <div class="flex flex-row pl-52">
             <div class="text-lg font-medium text-blue-700">
                 Race/Ethnicity
             </div>
@@ -107,6 +107,224 @@
             </mat-form-field>
           </div>
     </div>
-
-
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700">
+                Current Grade Level
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex flex-row pl-60">
+            <div class="text-lg font-medium text-blue-700">
+                Grade level applying for?
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-row w-full pt-3">
+        <mat-form-field appearance="fill" class="flex  w-96">
+            <mat-label>State</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="flex w-96 pl-3">
+            <mat-label>State</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="flex text-xl font-medium text-rose-700 pt-5">
+        Parent/Guardian Information
+    </div>
+    <div class="flex text-xl font-medium text-rose-700 pt-5">
+        Parent/Guardian 1
+    </div>
+    <div class="flex pt-5 flex-row" >
+        <div class="text-lg font-medium text-blue-700">
+            Name
+        </div>
+        <div class="text-lg font-medium text-red-600">
+            *
+        </div>
+    </div>
+    <div class="flex pt-3 flex-row w-full" >
+        <mat-form-field class="firstname w-96" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput>
+          </mat-form-field>
+        <mat-form-field class="lastname pl-3 w-96" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput>
+          </mat-form-field>
+    </div>
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700">
+                Address
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex pt-3 flex-col justify-start  w-full">
+        <mat-form-field class="studentadressline1 w-7/12" appearance="fill">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field class="studentadressline2 w-7/12 pt-1" appearance="fill">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <div class="flex flex-row w-full pt-1">
+            <mat-form-field class="studentcity" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="flex pl-20">
+                <mat-label>State</mat-label>
+                <mat-select>
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="studentzipcode pl-20" appearance="fill">
+                <mat-label>Zip Code</mat-label>
+                <input matInput>
+            </mat-form-field>
+          </div>
+    </div>
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700 w-96">
+                Phone
+            </div>
+        </div>
+        <div class="flex flex-row pl-3 w-96">
+            <div class="text-lg font-medium text-blue-700">
+                Email
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex pt-3 flex-row w-full" >
+        <mat-form-field class="firstname w-96" appearance="fill">
+            <mat-label>Phone*</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field class="parent1email w-96 pl-3" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Ex.pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <div class="flex text-xl font-medium text-rose-700 pt-5">
+        Parent/Guardian 2
+    </div>
+    <div class="flex pt-5 flex-row" >
+        <div class="text-lg font-medium text-blue-700">
+            Name
+        </div>
+        <div class="text-lg font-medium text-red-600">
+            *
+        </div>
+    </div>
+    <div class="flex pt-3 flex-row w-full" >
+        <mat-form-field class="firstname w-96" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput>
+          </mat-form-field>
+        <mat-form-field class="lastname pl-3 w-96" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput>
+          </mat-form-field>
+    </div>
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700">
+                Address
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex pt-3 flex-col justify-start  w-full">
+        <mat-form-field class="studentadressline1 w-7/12" appearance="fill">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field class="studentadressline2 w-7/12 pt-1" appearance="fill">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <div class="flex flex-row w-full pt-1">
+            <mat-form-field class="studentcity" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="flex pl-20">
+                <mat-label>State</mat-label>
+                <mat-select>
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="studentzipcode pl-20" appearance="fill">
+                <mat-label>Zip Code</mat-label>
+                <input matInput>
+            </mat-form-field>
+          </div>
+    </div>
+    <div class="flex pt-5 flex-row justify-start  w-full">
+        <div class="flex flex-row">
+            <div class="text-lg font-medium text-blue-700 w-96">
+                Phone*
+            </div>
+        </div>
+        <div class="flex flex-row pl-3 w-96">
+            <div class="text-lg font-medium text-blue-700">
+                Email
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+    </div>
+    <div class="flex pt-3 flex-row w-full" >
+        <mat-form-field class="firstname w-96" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field class="parent1email w-96 pl-3" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Ex.pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </div>
+</div>
+<div class="flex pt-7 justify-center flex-row w-full">
+<button class="flex pt-10" mat-flat-button color="accent">Submit Application</button>
 </div>

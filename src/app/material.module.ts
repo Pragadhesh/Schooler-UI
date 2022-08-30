@@ -8,6 +8,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatSelectModule} from '@angular/material/select';
+import {  ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { MatSelectModule} from '@angular/material/select';
     MatToolbarModule,
     MatButtonModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatNativeDateModule,
@@ -30,7 +32,8 @@ import { MatSelectModule} from '@angular/material/select';
     BrowserAnimationsModule,
     MatButtonModule, 
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [ MatDatepickerModule ],
 })
