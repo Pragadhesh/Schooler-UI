@@ -70,6 +70,13 @@ export class HomepageComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   submit() {
-    console.log(this.studentadmissionform.value);
+    if(this.studentadmissionform.valid)
+    {
+      console.log("Valid Form")
+    }
+    else
+    {
+      console.log("Invalid form")
+    }
   }
 }
