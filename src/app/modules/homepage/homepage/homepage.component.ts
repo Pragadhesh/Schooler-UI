@@ -16,12 +16,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
 
-
+ 
+  
   studentadmissionform = new FormGroup(
     {
       studentfirstname: new FormControl('', [Validators.required]),
@@ -68,7 +70,46 @@ export class HomepageComponent implements OnInit {
   );
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
-
+  races: string[] = ['Asian', 'White', 'African','Hispanic','Pacific Islander'];
+  grades: string[] = ['KinderGarden', '1st Grade', '2nd Grade','3rd Grade','4th Grade',
+                    '5th Grade','6th Grade','7th Grade','8th Grade','9th Grade','10th Grade',
+                    '11th Grade','12th Grade',];
+  states: string[] = [ "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jammu and Kashmir",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttarakhand",
+  "Uttar Pradesh",
+  "West Bengal",
+  "Andaman and Nicobar Islands",
+  "Chandigarh",
+  "Dadra and Nagar Haveli",
+  "Daman and Diu",
+  "Delhi",
+  "Lakshadweep",
+  "Puducherry"];
   submit() {
     if(this.studentadmissionform.valid)
     {
@@ -76,6 +117,7 @@ export class HomepageComponent implements OnInit {
     }
     else
     {
+      console.log(this.studentadmissionform.value)
       console.log("Invalid form")
     }
   }
