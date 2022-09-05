@@ -11,5 +11,5 @@ export class VerifyApplicationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  isLoading = true
 }

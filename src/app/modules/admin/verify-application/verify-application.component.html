@@ -2,3 +2,20 @@
     <div> Verify Students Application</div>
     <button class="pr-5" mat-flat-button color="accent" routerLink="/admin">Back to Admin</button>
 </mat-toolbar>
+<div class="flex pt-40 pl-96" *ngIf="isLoading">
+    <div class="container">
+        <div class="row">
+          <div id="loader">
+              <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="loading"></div>
+          </div>
+        </div>
+      </div>
+</div>

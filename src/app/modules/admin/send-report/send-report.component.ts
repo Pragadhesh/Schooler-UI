@@ -11,5 +11,5 @@ export class SendReportComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  isLoading = true
 }
