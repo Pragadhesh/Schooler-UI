@@ -10,7 +10,10 @@ export class AdmissionService {
   constructor(private http: HttpClient) { }
 
   applyAdmission(body: any) {
-    console.log("reached")
     return this.http.post('http://localhost:8000/student',body)
+  }
+
+  activeapplicants() {
+    return this.http.get(`${BASE_URL}${API.GET_APPLICANTS_INFO}`)
   }
 }

@@ -19,13 +19,13 @@
         </div>
       </div>
 </div>
-<div class="flex flex-col w-full h-full">
-  <div class="flex pt-5 w-full justify-center">
+<div class="flex flex-col w-full h-full" *ngIf="!isLoading && applicants && applicants.length > 0">
+  <div class="flex pt-5 w-full justify-center" *ngFor="let applicant of applicants; let i=index">
     <mat-card class="flex w-8/12 pt-3">
       <div class="flex flex-row justify-between">
         <div class="flex flex-col pl-3">
-          <mat-label class="flex text-lg font-semibold">Pragadhesh G</mat-label>
-          <mat-label>pragadhesh14@gmail.com</mat-label>
+          <mat-label class="flex text-lg font-semibold">{{applicant.fullname}}</mat-label>
+          <mat-label>{{applicant.email}}</mat-label>
         </div>
         <div class="flex flex-row justify-evenly w-80">
           <button class="pr-5" mat-flat-button color="accent">Send Remainder</button>
@@ -34,20 +34,4 @@
       </div>
     </mat-card>
   </div>
-
-  <div class="flex pt-5 w-full justify-center">
-    <mat-card class="flex w-8/12 pt-3">
-      <div class="flex flex-row justify-between">
-        <div class="flex flex-col pl-3">
-          <mat-label class="flex text-lg  font-semibold">Pragadhesh G</mat-label>
-          <mat-label>pragadhesh14@gmail.com</mat-label>
-        </div>
-        <div class="flex flex-row justify-evenly w-80">
-          <button class="pr-5" mat-flat-button color="accent">Send Remainder</button>
-          <button class="pr-5" mat-flat-button color="warn">Delete Application</button>
-        </div>
-      </div>
-    </mat-card>
-  </div>
-
 </div>
