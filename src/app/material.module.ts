@@ -8,7 +8,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatSelectModule} from '@angular/material/select';
-import {  ReactiveFormsModule} from '@angular/forms'
+import {  ReactiveFormsModule} from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import {  ReactiveFormsModule} from '@angular/forms'
     MatRadioModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   exports: [
     MatNativeDateModule,
@@ -33,7 +37,9 @@ import {  ReactiveFormsModule} from '@angular/forms'
     MatButtonModule, 
     MatRadioModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [ MatDatepickerModule ],
 })

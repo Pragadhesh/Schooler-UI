@@ -12,6 +12,6 @@ export class ActiveApplicantsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  isLoading = true
+  isLoading = false
 
 }
