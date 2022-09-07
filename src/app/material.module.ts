@@ -11,6 +11,7 @@ import { MatSelectModule} from '@angular/material/select';
 import {  ReactiveFormsModule} from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   exports: [
     MatNativeDateModule,
@@ -39,7 +41,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [ MatDatepickerModule ],
 })

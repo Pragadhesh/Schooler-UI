@@ -8,6 +8,7 @@ import { ActiveApplicantsComponent } from './active-applicants/active-applicants
 import { BasecomponentComponent } from './basecomponent/basecomponent.component';
 import { VerifyApplicationComponent } from './verify-application/verify-application.component';
 import { SendReportComponent } from './send-report/send-report.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SendReportComponent } from './send-report/send-report.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

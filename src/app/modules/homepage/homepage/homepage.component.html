@@ -48,7 +48,27 @@
     <div class="flex pt-3 pl-28 flex-row">
         <button class="flex pt-10 h-9" mat-flat-button color="accent" type="submit"> 
             Apply Admission</button>
-        <mat-spinner  mode="indeterminate" style="margin: 5px;" [diameter]="30" *ngIf="isloading"></mat-spinner>
+    </div>
+    <div class="overlay" *ngIf="isloading">
+        <div class="overlay__wrapper">
+            <div class="overlay__spinner">
+              <div class="container">
+                <div class="row">
+                  <div id="loader">
+                      <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="loading"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
 </form>
 

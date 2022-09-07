@@ -2,24 +2,28 @@
     <div> Active Applicants</div>
     <button class="pr-5" mat-flat-button color="accent" routerLink="/admin">Back to Admin</button>
 </mat-toolbar>
-<div class="flex pt-40 pl-96" *ngIf="isLoading">
-    <div class="container">
-        <div class="row">
-          <div id="loader">
+<div class="overlay" *ngIf="isLoading">
+  <div class="overlay__wrapper">
+      <div class="overlay__spinner">
+        <div class="container">
+          <div class="row">
+            <div id="loader">
+                <div class="dot"></div>
               <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="loading"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="loading"></div>
+            </div>
           </div>
         </div>
       </div>
+  </div>
 </div>
-<div class="flex flex-col w-full h-full" *ngIf="!isLoading && applicants && applicants.length > 0">
+<div class="flex flex-col w-full h-full" *ngIf="!isLoading && applicants.length > 0">
   <div class="flex pt-5 w-full justify-center" *ngFor="let applicant of applicants; let i=index">
     <mat-card class="flex w-8/12 pt-3">
       <div class="flex flex-row justify-between">
@@ -28,10 +32,10 @@
           <mat-label>{{applicant.email}}</mat-label>
         </div>
         <div class="flex flex-row justify-evenly w-80">
-          <button class="pr-5" mat-flat-button color="accent">Send Remainder</button>
-          <button class="pr-5" mat-flat-button color="warn">Delete Application</button>
+          <button class="pr-5" mat-flat-button color="accent" (click)="sendReminder(applicant.workflow_instance_id)">Send Remainder</button>
+          <button class="pr-5" mat-flat-button color="warn" (click)="deleteApplication(applicant.workflow_instance_id,i,applicant.email)">Delete Application</button>
         </div>
       </div>
     </mat-card>
-  </div>
 </div>
+
