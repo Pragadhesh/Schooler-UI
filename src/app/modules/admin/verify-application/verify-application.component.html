@@ -2,20 +2,55 @@
     <div> Verify Students Application</div>
     <button class="pr-5" mat-flat-button color="accent" routerLink="/admin">Back to Admin</button>
 </mat-toolbar>
-<div class="flex pt-40 pl-96" *ngIf="isLoading">
-    <div class="container">
-        <div class="row">
-          <div id="loader">
+<div class="overlay" *ngIf="isLoading">
+  <div class="overlay__wrapper">
+      <div class="overlay__spinner">
+        <div class="container">
+          <div class="row">
+            <div id="loader">
               <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="loading"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="loading"></div>
+            </div>
           </div>
         </div>
       </div>
+  </div>
+</div>
+<div class="flex flex-col w-full h-full" >
+  <div class="flex flex-row w-full p-5">
+    <div class="flex w-full justify-center">
+      <mat-button-toggle-group appearance="standard" class="flex items-center w-60 h-12 justify-between" >
+        <mat-button-toggle class="flex w-1/2 text-base font-medium">UnVerified</mat-button-toggle>
+        <mat-button-toggle class="flex w-1/2 text-base font-medium">Verified</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <mat-form-field appearance="fill" class="flex items-center self-end">
+        <mat-label>Choose a Grade</mat-label>
+        <mat-select >
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2 </mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex pt-5 w-full justify-center">
+    <mat-card class="flex w-8/12 pt-3">
+      <div class="flex flex-row justify-between">
+        <div class="flex flex-col pl-3">
+          <mat-label class="flex text-lg font-semibold">Demo</mat-label>
+          <mat-label>Demo</mat-label>
+        </div>
+        <div class="flex flex-row justify-evenly w-80">
+          <button class="pr-5" mat-flat-button color="accent">Send Remainder</button>
+          <button class="pr-5" mat-flat-button color="primary">Delete </button>
+        </div>
+      </div>
+    </mat-card>
 </div>
