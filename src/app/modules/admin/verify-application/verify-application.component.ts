@@ -12,4 +12,16 @@ export class VerifyApplicationComponent implements OnInit {
   ngOnInit(): void {
   }
   isLoading = false
+  verification_status = false
+  togglebuttonvalue = "unverified"
+  setunverified()
+  {
+    this.verification_status = false
+    this.togglebuttonvalue = "unverified"
+  }
+  setverified()
+  {
+    this.verification_status = true
+    this.togglebuttonvalue = "verified"
+  }
 }

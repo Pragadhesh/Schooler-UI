@@ -26,9 +26,9 @@
 <div class="flex flex-col w-full h-full" >
   <div class="flex flex-row w-full p-5">
     <div class="flex w-full justify-center">
-      <mat-button-toggle-group appearance="standard" class="flex items-center w-60 h-12 justify-between" >
-        <mat-button-toggle class="flex w-1/2 text-base font-medium">UnVerified</mat-button-toggle>
-        <mat-button-toggle class="flex w-1/2 text-base font-medium">Verified</mat-button-toggle>
+      <mat-button-toggle-group appearance="standard" class="flex items-center w-60 h-12 justify-between" #toggleGroup="matButtonToggleGroup" [value]="togglebuttonvalue" >
+        <mat-button-toggle value="unverified" class="flex w-1/2 text-base font-medium" (click)="setunverified()">UnVerified</mat-button-toggle>
+        <mat-button-toggle value="verified" class="flex w-1/2 text-base font-medium" (click)="setverified()">Verified</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
     <mat-form-field appearance="fill" class="flex items-center self-end">
@@ -48,7 +48,8 @@
           <div class="flex flex-row w-full">
             <mat-label class="flex text-lg font-medium">Pragadhesh</mat-label>
             <mat-label class="flex pl-1 text-lg font-medium">Gopalakrishnan</mat-label>
-            <img mat-card-image src="../../../../assets/images/verified_icon.jpg" class="flex pl-4 w-8 h-8">
+            <img mat-card-image src="../../../../assets/images/verified_icon.jpg" class="flex pl-4 w-8 h-8" *ngIf="verification_status">
+            <img mat-card-image src="../../../../assets/images/unverified.jpg" class="flex pl-4 w-8 h-8" *ngIf="!verification_status">
           </div>
           <div class="flex flex-row w-full">
             <mat-label class="flex text-base font-light">14-11-1998</mat-label>
@@ -59,33 +60,10 @@
       </div>
       <div class="flex flex-row justify-evenly items-center w-80">
           <button class="pr-5 h-12" mat-flat-button color="accent">Download Form</button>
-          <button class="pr-5 h-12" mat-flat-button color="primary">Verify Applicant </button>
+          <button class="pr-5 h-12" mat-flat-button color="primary" *ngIf="!verification_status">Verify Applicant</button>
+          <button class="pr-5 h-12" mat-flat-button color="primary" *ngIf="verification_status">Cancel Verification</button>
         </div>
       </div>
     </mat-card>
   </div>
-  <div class="flex w-8/12 pt-3">
-    <mat-card class="flex w-full">
-      <div class="flex flex-row justify-between">
-        <div class="flex flex-col pl-3">
-          <div class="flex flex-row w-full">
-            <mat-label class="flex text-lg font-medium">Pragadhesh</mat-label>
-            <mat-label class="flex pl-1 text-lg font-medium">Gopalakrishnan</mat-label>
-            <img mat-card-image src="../../../../assets/images/verified_icon.jpg" class="flex pl-4 w-8 h-8">
-          </div>
-          <div class="flex flex-row w-full">
-            <mat-label class="flex text-base font-light">14-11-1998</mat-label>
-            <mat-label class="flex pl-8 text-base font-light">Male</mat-label>
-          </div>
-        <mat-label class="flex pt-1 text-base font-light">pragadhesh14@gmail.com</mat-label>
-        <mat-label class="flex pt-1 text-base font-light">+91 9688827051</mat-label>
-      </div>
-      <div class="flex flex-row justify-evenly items-center w-80">
-          <button class="pr-5 h-12" mat-flat-button color="accent">Download Form</button>
-          <button class="pr-5 h-12" mat-flat-button color="primary">Verify Applicant </button>
-        </div>
-      </div>
-    </mat-card>
-  </div>
-
 </div>
