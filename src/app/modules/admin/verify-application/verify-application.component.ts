@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdmissionService } from 'src/app/services/admission.service';
 
 interface Grade {
   name: string;
@@ -61,44 +62,25 @@ export class VerifyApplicationComponent implements OnInit {
     {name: '12th Grade'}
   ]
   all_applicants: any
-  constructor() { }
+  constructor(private admissionservice: AdmissionService) { }
 
   ngOnInit(): void {
-    let response = {
-      "9th Grade": [
-          {
-              "workflow_instance_id": "jsaeoUjVoh4Lz6PC",
-              "application_status": "completed",
-              "fullname": "Virat Kohli",
-              "email": "rockybhaikohli@gmail.com",
-              "student_firstname": "Pragadhesh",
-              "student_lastname": "Gopal",
-              "student_dob": "2022-09-21",
-              "student_phone": "+91 9688827051",
-              "student_address": "KSR Kalvi Nagar Varapalayam",
-              "student_sex": "Male",
-              "student_race": "Asian",
-              "student_nationality": "India",
-              "student_religion": "Hindu",
-              "student_current_grade_level": "8th Grade",
-              "parent1_firstname": "Demo",
-              "parent1_lastname": "Ldkal",
-              "parent1_relationship": "Father",
-              "parent1_phone": "+91 9344367333",
-              "parent1_email": "demo@gmail.com",
-              "parent1_address": ";lfaskjd",
-              "parent2_firstname": "Abi",
-              "parent2_lastname": "Krish",
-              "parent2_relationship": "Guardian",
-              "parent2_phone": "4747393938",
-              "parent2_email": "demo@gmail.com",
-              "parent2_address": "asdlkkdkdkdkeo",
-              "verified": "false"
-          }
-      ]
+    this.isLoading = true
+    this.admissionservice.completedapplicants()
+    .subscribe(
+      Response => {
+          this.all_applicants = JSON.parse(JSON.stringify(Response))
+          this.isLoading = false
+          this.verification_status = false
+          this.togglebuttonvalue = "unverified"
+          this.current_grade = "null" 
+      },
+      (err:any) => {
+        this.isLoading = false
+        console.log(err)
       }
-    this.all_applicants = JSON.parse(JSON.stringify(response))
-    console.log(this.all_applicants["9th Grade"])
+    )
+
   }
   setunverified()
   {
@@ -111,8 +93,6 @@ export class VerifyApplicationComponent implements OnInit {
   }
   setverified()
   {
-    console.log("reached here")
-    console.log(this.current_grade)
     if (this.current_grade != "null")
     {
     this.verification_status = true

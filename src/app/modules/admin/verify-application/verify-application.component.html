@@ -24,7 +24,7 @@
   </div>
 </div>
 <div class="flex flex-col w-full h-full" >
-  <div class="flex flex-row w-full p-5">
+  <div class="flex flex-row w-full p-5" *ngIf="!isLoading">
     <div class="flex w-full justify-center">
       <mat-button-toggle-group appearance="standard" class="flex items-center w-60 h-12 justify-between" #toggleGroup="matButtonToggleGroup" [value]="togglebuttonvalue" >
         <mat-button-toggle value="unverified" class="flex w-1/2 text-base font-medium" (click)="setunverified()">UnVerified</mat-button-toggle>
@@ -46,8 +46,12 @@
           <div class="flex flex-row w-full">
             <mat-label class="flex text-lg font-medium">{{applicant.student_firstname}}</mat-label>
             <mat-label class="flex pl-1 text-lg font-medium">{{applicant.student_lastname}}</mat-label>
-            <img mat-card-image src="../../../../assets/images/verified_icon.jpg" class="flex pl-4 w-8 h-8" *ngIf="verification_status">
-            <img mat-card-image src="../../../../assets/images/unverified.jpg" class="flex pl-4 w-8 h-8" *ngIf="!verification_status">
+            <mat-label class="flex pl-4 w-12 h-12 pt-3" *ngIf="verification_status">
+            <img mat-card-image src="../../../../assets/images/verified_icon.jpg" class="flex w-full" >
+            </mat-label>
+            <mat-label class="flex pl-4 w-12 h-12 pt-3" *ngIf="!verification_status">
+              <img mat-card-image src="../../../../assets/images/unverified.jpg" class="flex w-full">
+            </mat-label>
           </div>
           <div class="flex flex-row w-full">
             <mat-label class="flex text-base font-light">{{applicant.student_dob}}</mat-label>
@@ -56,11 +60,11 @@
         <mat-label class="flex pt-1 text-base font-light">{{applicant.email}}</mat-label>
         <mat-label class="flex pt-1 text-base font-light">{{applicant.student_phone}}</mat-label>
       </div>
-      <div class="flex flex-row justify-evenly items-center w-80">
-          <button class="pr-5 h-12" mat-flat-button color="accent">Download Form</button>
-          <button class="pr-5 h-12" mat-flat-button color="primary" *ngIf="!verification_status">Verify Applicant</button>
-          <button class="pr-5 h-12" mat-flat-button color="primary" *ngIf="verification_status">Cancel Verification</button>
-        </div>
+      <div class="grid grid-cols-2 gap-4 items-center">
+          <button mat-flat-button color="accent" class="flex h-11">Download Form</button>
+          <button  mat-flat-button color="primary" class="flex h-11" *ngIf="!verification_status">Verify Applicant</button>
+          <button  mat-flat-button color="primary" class="flex h-11" *ngIf="verification_status">Cancel Verification</button>
+      </div>
       </div>
     </mat-card>
   </div>

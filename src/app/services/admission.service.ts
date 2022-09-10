@@ -25,4 +25,8 @@ export class AdmissionService {
     return this.http.put(`${BASE_URL}${API.DELETE_APPLICANT}`,body)
   }
 
+  completedapplicants() {
+    return this.http.get(`${BASE_URL}${API.GET_COMPLETED_APPLICANTS}`)
+  }
+
 }
