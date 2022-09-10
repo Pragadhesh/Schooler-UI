@@ -129,4 +129,28 @@ export class VerifyApplicationComponent implements OnInit {
     this.completed_applicants = final_students
     this.isLoading = false
   }
+  downloadFile(workflow_instance_id)
+  {
+    this.isLoading = true
+    console.log(this.isLoading)
+    let body = {
+      workflow_instance_id: workflow_instance_id
+    }
+    this.admissionservice.downloadApplicantform(body).subscribe(data =>
+      {
+        const blob = new Blob([data], {
+          type: 'application/zip'
+        });
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+        this.isLoading = false
+      },
+      (error:any) =>
+      {
+        console.log(error)
+        this.isLoading = false
+      }
+      );
+
+  }
 }

@@ -4,5 +4,6 @@ export const API = {
     GET_APPLICANTS_INFO: '/student',
     SEND_REMINDER: '/reminder',
     DELETE_APPLICANT: '/student',
-    GET_COMPLETED_APPLICANTS: '/completed'
+    GET_COMPLETED_APPLICANTS: '/completed',
+    GET_DOCUMENTS: '/documents'
 }

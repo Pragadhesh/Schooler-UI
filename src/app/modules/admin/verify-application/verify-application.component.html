@@ -61,7 +61,7 @@
         <mat-label class="flex pt-1 text-base font-light">{{applicant.student_phone}}</mat-label>
       </div>
       <div class="grid grid-cols-2 gap-4 items-center">
-          <button mat-flat-button color="accent" class="flex h-11">Download Form</button>
+          <button mat-flat-button color="accent" class="flex h-11" (click)="downloadFile(applicant.workflow_instance_id)">Download Form</button>
           <button  mat-flat-button color="primary" class="flex h-11" *ngIf="!verification_status">Verify Applicant</button>
           <button  mat-flat-button color="primary" class="flex h-11" *ngIf="verification_status">Cancel Verification</button>
       </div>
