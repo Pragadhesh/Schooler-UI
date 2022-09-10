@@ -84,21 +84,22 @@ export class VerifyApplicationComponent implements OnInit {
   }
   setunverified()
   {
+    this.verification_status = false
+    this.togglebuttonvalue = "unverified"
     if (this.current_grade != "null")
     {
-      this.verification_status = false
-      this.togglebuttonvalue = "unverified"
       this.viewapplications(this.current_grade)
     }
   }
   setverified()
   {
-    if (this.current_grade != "null")
-    {
     this.verification_status = true
     this.togglebuttonvalue = "verified"
+    if (this.current_grade != "null")
+    {
     this.viewapplications(this.current_grade)
     }
+
   }
   viewapplications(grade)
   {
