@@ -33,7 +33,7 @@
     </div>
     <mat-form-field appearance="fill" class="flex items-center self-end">
         <mat-label>Choose a Grade</mat-label>
-        <mat-select (selectionChange)="viewapplications($event.value)">
+        <mat-select (selectionChange)="viewapplications($event.value)" [(value)]="currentgrade">
           <mat-option *ngFor="let grade of grades" [value]="grade.name">{{grade.name}}</mat-option>
         </mat-select>
     </mat-form-field>
@@ -62,8 +62,8 @@
       </div>
       <div class="grid grid-cols-2 gap-4 items-center">
           <button mat-flat-button color="accent" class="flex h-11" (click)="downloadFile(applicant.workflow_instance_id)">Download Form</button>
-          <button  mat-flat-button color="primary" class="flex h-11" *ngIf="!verification_status">Verify Applicant</button>
-          <button  mat-flat-button color="primary" class="flex h-11" *ngIf="verification_status">Cancel Verification</button>
+          <button  mat-flat-button color="primary" class="flex h-11" *ngIf="!verification_status" (click)="setverification(applicant.email)">Verify Applicant</button>
+          <button  mat-flat-button color="primary" class="flex h-11" *ngIf="verification_status" (click)="setverification(applicant.email)">Cancel Verification</button>
       </div>
       </div>
     </mat-card>

@@ -5,5 +5,6 @@ export const API = {
     SEND_REMINDER: '/reminder',
     DELETE_APPLICANT: '/student',
     GET_COMPLETED_APPLICANTS: '/completed',
-    GET_DOCUMENTS: '/documents'
+    GET_DOCUMENTS: '/documents',
+    SET_VERIFICATION: '/verify'
 }

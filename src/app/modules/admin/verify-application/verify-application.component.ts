@@ -73,7 +73,7 @@ export class VerifyApplicationComponent implements OnInit {
           this.isLoading = false
           this.verification_status = false
           this.togglebuttonvalue = "unverified"
-          this.current_grade = "null" 
+          this.current_grade = "null"
       },
       (err:any) => {
         this.isLoading = false
@@ -133,7 +133,6 @@ export class VerifyApplicationComponent implements OnInit {
   downloadFile(workflow_instance_id)
   {
     this.isLoading = true
-    console.log(this.isLoading)
     let body = {
       workflow_instance_id: workflow_instance_id
     }
@@ -153,5 +152,48 @@ export class VerifyApplicationComponent implements OnInit {
       }
       );
 
+  }
+
+  setverification(email)
+  {
+    this.isLoading = true
+    let verified : string
+    if(this.verification_status)
+    {
+      verified = "false"
+    }
+    else
+    {
+      verified = "true"
+    }
+    let body = {
+      email: email,
+      verified: verified
+    }
+    this.admissionservice.setverification(body)
+    .subscribe(
+      Response => {
+        for (var index in this.all_applicants[this.current_grade]) {
+          if(this.all_applicants[this.current_grade][index]['email'] == email)
+          {
+            this.all_applicants[this.current_grade][index]['verified'] = verified
+            break
+          }
+        }
+        if(verified == "true")
+        {
+            this.setverified()
+        }
+        else
+        {
+            this.setunverified()
+        }
+      },
+      (err:any) => {
+        this.isLoading = false
+        console.log(err)
+      }
+    )
+    
   }
 }

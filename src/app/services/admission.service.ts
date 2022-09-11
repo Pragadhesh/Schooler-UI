@@ -37,4 +37,8 @@ export class AdmissionService {
     }
     )
   }
+
+  setverification(body: any) {
+    return this.http.put(`${BASE_URL}${API.SET_VERIFICATION}`,body)
+  }
 }
