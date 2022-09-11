@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdmissionService } from 'src/app/services/admission.service';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 
 interface Grade {
   name: string;
@@ -62,7 +64,7 @@ export class VerifyApplicationComponent implements OnInit {
     {name: '12th Grade'}
   ]
   all_applicants: any
-  constructor(private admissionservice: AdmissionService) { }
+  constructor(private admissionservice: AdmissionService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.isLoading = true
@@ -180,18 +182,42 @@ export class VerifyApplicationComponent implements OnInit {
             break
           }
         }
+        let response_data = JSON.parse(JSON.stringify(Response))
+        let message = response_data.message
         if(verified == "true")
         {
             this.setverified()
+            this.dialog.open(DialogComponent,{
+              width: '35rem',
+              height: '10rem',
+              data: {
+                value: message
+              }
+            })
         }
         else
         {
             this.setunverified()
+            this.dialog.open(DialogComponent,{
+              width: '35rem',
+              height: '10rem',
+              data: {
+                value: message
+              }
+            })
         }
       },
       (err:any) => {
+        let response_data = JSON.parse(JSON.stringify(err))
+        let message = response_data.message
         this.isLoading = false
-        console.log(err)
+        this.dialog.open(DialogComponent,{
+          width: '30rem',
+          height: '8rem',
+          data: {
+            value: "Issue in changing the verification status"
+          }
+        })
       }
     )
     
