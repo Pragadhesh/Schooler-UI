@@ -7,5 +7,6 @@ export const API = {
     GET_COMPLETED_APPLICANTS: '/completed',
     GET_DOCUMENTS: '/documents',
     SET_VERIFICATION: '/verify',
-    GET_VERIFIED_APPLICANTS: '/verifiedapplicants'
+    GET_VERIFIED_APPLICANTS: '/verifiedapplicants',
+    SEND_REPORT: '/sendreport'
 }

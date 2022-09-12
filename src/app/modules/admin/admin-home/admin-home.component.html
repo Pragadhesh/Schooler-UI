@@ -2,8 +2,10 @@
     <div> Admin Portal</div>
     <button class="pr-5" mat-flat-button color="accent" routerLink="/">Home</button>
 </mat-toolbar>
-<div class="flex items-center justify-evenly w-8/12 pt-48 pl-52 ">
-    <button  mat-flat-button color="accent" routerLink="/admin/active-applicants">View Active Applicants</button>
-    <button  mat-flat-button color="accent" routerLink="/admin/verify-application">Verify Completed Applications</button>
-    <button  mat-flat-button color="accent" routerLink="/admin/send-report">Send Mark Report</button>
+<div class="flex justify-center pt-48 w-full">
+    <div class="grid grid-cols-3 gap-8 items-center self-center">
+        <button  mat-flat-button color="accent" routerLink="/admin/active-applicants">View Active Applicants</button>
+        <button  mat-flat-button color="accent" routerLink="/admin/verify-application">Verify Completed Applications</button>
+        <button  mat-flat-button color="accent" routerLink="/admin/send-report">Send Mark Report</button>
+    </div>
 </div>

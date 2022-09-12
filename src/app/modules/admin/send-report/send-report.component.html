@@ -19,8 +19,8 @@
         </div>
       </div>
 </div>
-<div class="flex flex-col w-full h-full" >
-  <div class="flex flex-row w-full p-5 justify-end" *ngIf="!isLoading">
+<div class="flex flex-col w-full h-full" *ngIf="!isLoading && !sendReport && !isscorecard">
+  <div class="flex flex-row w-full p-5 justify-end" >
     <mat-form-field appearance="fill" class="flex items-center self-end">
         <mat-label>Choose a Grade</mat-label>
         <mat-select (selectionChange)="viewapplications($event.value)" [(value)]="currentgrade">
@@ -28,7 +28,7 @@
         </mat-select>
     </mat-form-field>
   </div>
-  <div class="flex flex-col w-full items-center" *ngIf="!isLoading && completed_applicants && completed_applicants.length > 0">
+  <div class="flex flex-col w-full items-center" *ngIf="!isLoading  && !sendReport && !isscorecard && completed_applicants && completed_applicants.length > 0">
     <div class="flex w-6/12 pt-3" *ngFor="let applicant of completed_applicants; let i=index">
       <mat-card class="flex w-full">
         <div class="flex flex-row justify-between">
@@ -48,10 +48,154 @@
           <mat-label class="flex pt-1 text-base font-light">{{applicant.student_phone}}</mat-label>
         </div>
         <div class="grid grid-cols-2 gap-4 items-center">
-            <button mat-flat-button color="accent" class="flex h-11">Send Report</button>
+            <button mat-flat-button color="accent" class="flex h-11" (click)="showparentdetails(applicant)">Send Report</button>
         </div>
         </div>
       </mat-card>
     </div>
   </div>
+</div>
+<div class="flex flex-col w-full h-full pt-28" *ngIf="sendReport && !isLoading && !isscorecard">
+  <div class="flex flex-col w-full items-center" >
+    <div class="flex w-6/12 pt-3">
+      <mat-card class="flex w-full">
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col pl-3">
+            <div class="flex flex-row w-full">
+              <mat-label class="flex text-lg font-medium">{{current_applicant.parent1_firstname}}</mat-label>
+              <mat-label class="flex pl-1 text-lg font-medium">{{current_applicant.parent1_lastname}}</mat-label>
+            </div>
+            <mat-label class="flex pt-1 text-base font-normal">{{current_applicant.parent1_relationship}}</mat-label>
+            <div class="flex flex-row w-full">
+              <mat-label class="flex text-base font-light">{{current_applicant.parent1_email}}</mat-label>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 items-center">
+            <button mat-flat-button color="accent" class="flex h-11" (click)="showreport(current_applicant.parent1_email)">Send Report - Parent 1</button>
+        </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="flex flex-col w-full items-center" >
+    <div class="flex w-6/12 pt-3">
+      <mat-card class="flex w-full">
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col pl-3">
+            <div class="flex flex-row w-full">
+              <mat-label class="flex text-lg font-medium">{{current_applicant.parent2_firstname}}</mat-label>
+              <mat-label class="flex pl-1 text-lg font-medium">{{current_applicant.parent2_lastname}}</mat-label>
+            </div>
+            <mat-label class="flex pt-1 text-base font-normal">{{current_applicant.parent2_relationship}}</mat-label>
+            <div class="flex flex-row w-full">
+              <mat-label class="flex text-base font-light">{{current_applicant.parent2_email}}</mat-label>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 items-center">
+            <button mat-flat-button color="accent" class="flex h-11" (click)="showreport(current_applicant.parent2_email)">Send Report - Parent 2</button>
+        </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  
+</div>
+
+<div class="flex flex-col w-full h-full pt-4 " *ngIf="sendReport && !isLoading && isscorecard">
+  <form (ngSubmit)="submit()" [formGroup]="studentadmissionform" class="flex items-center flex-col">
+    <div class="flex text-xl font-medium text-rose-700">
+        Enter Students Score
+    </div>
+    <div class="grid grid-cols-3 justify-center gap-x-20 gap-y-3">
+        <div class="flex flex-col">
+          <div class="flex pt-5 flex-row" >
+            <div class="text-lg font-medium text-blue-700">
+                Maths 
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex pt-3 flex-row w-full" >
+            <mat-form-field  class="firstname w-48" appearance="fill">
+                    <mat-label>Maths Score</mat-label>
+                    <input matInput formControlName="mathsscore" type="number" min="1" max="100">
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex pt-5 flex-row" >
+            <div class="text-lg font-medium text-blue-700">
+                Science
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex pt-3 flex-row w-full" >
+            <mat-form-field  class="firstname w-48" appearance="fill">
+                    <mat-label>Science Score</mat-label>
+                    <input matInput formControlName="sciencescore" type="number" min="1" max="100">
+            </mat-form-field>
+        </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex pt-5 flex-row" >
+            <div class="text-lg font-medium text-blue-700">
+                Social
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex pt-3 flex-row w-full" >
+            <mat-form-field  class="firstname w-48" appearance="fill">
+                    <mat-label>Social Score</mat-label>
+                    <input matInput formControlName="socialscore" type="number" min="1" max="100">
+            </mat-form-field>
+        </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex pt-5 flex-row" >
+            <div class="text-lg font-medium text-blue-700">
+                Tamil
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex pt-3 flex-row w-full" >
+            <mat-form-field  class="firstname w-48" appearance="fill">
+                    <mat-label>Tamil Score</mat-label>
+                    <input matInput formControlName="tamilscore" type="number" min="1" max="100">
+            </mat-form-field>
+        </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex pt-5 flex-row" >
+            <div class="text-lg font-medium text-blue-700">
+                English
+            </div>
+            <div class="text-lg font-medium text-red-600">
+                *
+            </div>
+        </div>
+        <div class="flex pt-3 flex-row w-full" >
+            <mat-form-field  class="firstname w-48" appearance="fill">
+                    <mat-label>English Score</mat-label>
+                    <input matInput formControlName="englishscore" type="number" min="1" max="100">
+            </mat-form-field>
+        </div>
+        </div>
+
+    </div>
+    <div class="flex justify-center w-full pt-8">
+        <button class="flex " mat-flat-button color="accent" type="submit">Send Report</button>
+    </div>
+</form>
+ 
 </div>

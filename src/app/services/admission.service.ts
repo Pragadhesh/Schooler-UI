@@ -45,4 +45,9 @@ export class AdmissionService {
   verifiedapplicants() {
     return this.http.get(`${BASE_URL}${API.GET_VERIFIED_APPLICANTS}`)
   }
+
+  sendReport(body: any) {
+    return this.http.post(`${BASE_URL}${API.SEND_REPORT}`,body)
+  }
+
 }
