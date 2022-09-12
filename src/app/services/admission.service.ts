@@ -41,4 +41,8 @@ export class AdmissionService {
   setverification(body: any) {
     return this.http.put(`${BASE_URL}${API.SET_VERIFICATION}`,body)
   }
+
+  verifiedapplicants() {
+    return this.http.get(`${BASE_URL}${API.GET_VERIFIED_APPLICANTS}`)
+  }
 }

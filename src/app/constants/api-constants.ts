@@ -6,5 +6,6 @@ export const API = {
     DELETE_APPLICANT: '/student',
     GET_COMPLETED_APPLICANTS: '/completed',
     GET_DOCUMENTS: '/documents',
-    SET_VERIFICATION: '/verify'
+    SET_VERIFICATION: '/verify',
+    GET_VERIFIED_APPLICANTS: '/verifiedapplicants'
 }
