@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:8000'
+export const BASE_URL = 'https://2io97w8x68.execute-api.ap-south-1.amazonaws.com/api'
 export const API = {
     APPLY_ADMISSION: '/student',
     GET_APPLICANTS_INFO: '/student',

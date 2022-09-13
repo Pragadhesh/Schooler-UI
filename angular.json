@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "scolarship-ui": {
+    "school-admission": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/scolarship-ui",
+            "outputPath": "dist/school-admission",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "scolarship-ui:build"
+            "browserTarget": "school-admission:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "scolarship-ui:build:production"
+              "browserTarget": "school-admission:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "scolarship-ui:build"
+            "browserTarget": "school-admission:build"
           }
         },
         "test": {
@@ -115,16 +115,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "scolarship-ui:serve"
+            "devServerTarget": "school-admission:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "scolarship-ui:serve:production"
+              "devServerTarget": "school-admission:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "scolarship-ui"
+  "defaultProject": "school-admission"
 }
