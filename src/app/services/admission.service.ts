@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API, BASE_URL } from '../constants/api-constants'
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -30,12 +29,8 @@ export class AdmissionService {
     return this.http.get(`${BASE_URL}${API.GET_COMPLETED_APPLICANTS}`)
   }
 
-  downloadApplicantform(body: any) {
-    return this.http.post(`${BASE_URL}${API.GET_DOCUMENTS}`,body,
-    {
-      responseType: 'arraybuffer'
-    }
-    )
+  getDownloadlink(body: any) {
+    return this.http.post(`${BASE_URL}${API.GET_DOCUMENTS}`,body)
   }
 
   setverification(body: any) {
